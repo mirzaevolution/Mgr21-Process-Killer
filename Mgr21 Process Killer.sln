@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreSecurityLib", "CoreSecurityLib\CoreSecurityLib.csproj", "{8C53AFDF-35BE-4E0C-B0DC-122DBBA8FDB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreModel", "CoreModel\CoreModel.csproj", "{D5167510-58E2-4384-9722-BF171BAAC03A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C53AFDF-35BE-4E0C-B0DC-122DBBA8FDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C53AFDF-35BE-4E0C-B0DC-122DBBA8FDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C53AFDF-35BE-4E0C-B0DC-122DBBA8FDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C53AFDF-35BE-4E0C-B0DC-122DBBA8FDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5167510-58E2-4384-9722-BF171BAAC03A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5167510-58E2-4384-9722-BF171BAAC03A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5167510-58E2-4384-9722-BF171BAAC03A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5167510-58E2-4384-9722-BF171BAAC03A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DA3756F-0081-4888-AA47-E00178B970CE}
+	EndGlobalSection
+EndGlobal
