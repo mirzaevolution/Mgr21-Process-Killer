@@ -20,6 +20,8 @@ Project("{E729F059-12D4-455F-A2A4-FDA8DD25E08A}") = "Mgr21 Process Killer", "Mgr
 		{767101E8-F458-4645-B1DC-FB207229BE3B} = {767101E8-F458-4645-B1DC-FB207229BE3B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenShots", "ScreenShots\ScreenShots.csproj", "{378D8B5B-9270-490F-BC6C-56A7535D4759}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{D5DA91E3-DE29-4345-A303-85DB57A80467}.Debug|Any CPU.Build.0 = Debug
 		{D5DA91E3-DE29-4345-A303-85DB57A80467}.Release|Any CPU.ActiveCfg = Release
 		{D5DA91E3-DE29-4345-A303-85DB57A80467}.Release|Any CPU.Build.0 = Release
+		{378D8B5B-9270-490F-BC6C-56A7535D4759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378D8B5B-9270-490F-BC6C-56A7535D4759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378D8B5B-9270-490F-BC6C-56A7535D4759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378D8B5B-9270-490F-BC6C-56A7535D4759}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
