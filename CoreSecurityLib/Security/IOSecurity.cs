@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Security.Cryptography;
-using System.Diagnostics;
 using Newtonsoft.Json;
 using MirzaCryptoHelpers.Hashings;
 using MirzaCryptoHelpers.Common;
@@ -804,12 +803,16 @@ namespace CoreSecurityLib.Security
             {
                 try
                 {
+                    bool isNew = false;
                     if (!File.Exists(Global.DataFileLocation))
+                    {
                         File.WriteAllText(Global.DataFileLocation, null);
+                        isNew = true;
+                    }
                     var unlockDataFileResult = UnlockFile
                         (
                             filename:Global.DataFileLocation,
-                            isNew:true
+                            isNew:isNew
                          );
                     if (!unlockDataFileResult.Success)
                     {

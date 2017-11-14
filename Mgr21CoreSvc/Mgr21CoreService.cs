@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Timers;
-using CoreSecurityLib.Security;
 using System.IO;
-using CoreSecurityLib;
-using CoreModel;
-using CoreSecurityLib.Process;
+using System.Data;
+using System.Linq;
+using System.Timers;
+using System.Diagnostics;
+using System.ServiceProcess;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using CoreModel;
+using CoreSecurityLib;
+using CoreSecurityLib.Security;
+using CoreSecurityLib.Process;
 using CoreSecurityLib.Common;
 namespace Mgr21CoreSvc
 {
@@ -26,12 +26,10 @@ namespace Mgr21CoreSvc
         {
             InitializeComponent();
             _log = new EventLog();
-            
             if (!EventLog.SourceExists("Prockillersrc"))
                 EventLog.CreateEventSource("Prockillersrc", "Mgr21log");
             _log.Source = "Prockillersrc";
             _log.Log = "Mgr21log";
-
             _timer = new Timer();
             _timer.Elapsed += OnTimerElapsed;
             _ioSecurity = new IOSecurity();
@@ -70,7 +68,7 @@ namespace Mgr21CoreSvc
             {
                 if (Checker.CompareProcess(source, target))
                 {
-                    if (!processToKill.HasExited)
+                    if (!processToKill.HasExited) //to avoid race condition without locking
                         processToKill.Kill();
                 }
             }
@@ -86,7 +84,7 @@ namespace Mgr21CoreSvc
             {
                 try
                 {
-                    if(!process.HasExited)
+                    if(!process.HasExited) //to avoid race condition without locking
                         process.Kill();
                 }
                 catch (Exception ex)
@@ -103,7 +101,6 @@ namespace Mgr21CoreSvc
                 long length = 0;
                 try
                 {
-
                     using (FileStream fs = File.OpenRead(process.MainModule.FileName))
                     {
                         length = fs.Length;
@@ -208,7 +205,6 @@ namespace Mgr21CoreSvc
             {
                 _isStarted = false;
                 _timer.Stop();
-                _log.WriteEntry("Stopping timer..");
             }
         }
         #endregion

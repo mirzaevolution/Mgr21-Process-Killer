@@ -52,7 +52,7 @@ namespace Mgr21ProcKiller.CLI
             WriteLine("  ######################################");
             WriteLine("  ######################################\n");
             ForegroundColor = ConsoleColor.Green;
-            WriteLine("  Mgr21 PROCESS BLOCKER");
+            WriteLine("  Mgr-21 PROCESS KILLER");
             WriteLine("  Created By: Mirza Ghulam Rasyid\n");
         }
         private void Menu()
@@ -209,10 +209,7 @@ namespace Mgr21ProcKiller.CLI
                         Environment.Exit(0);
                         break;
                 }
-                
             }
         }
-        
-
     }
 }

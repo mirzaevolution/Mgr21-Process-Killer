@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
-
 namespace CoreSecurityLib.Common
 {
 
@@ -38,7 +37,9 @@ namespace CoreSecurityLib.Common
         }
         public static DataResult<Settings> RetrieveSettings()
         {
-            if(!File.Exists(Global.SettingFileLocation))
+            bool success = true;
+            string message = "";
+            if (!File.Exists(Global.SettingFileLocation))
             {
                 return new DataResult<Settings>
                 {
@@ -46,13 +47,16 @@ namespace CoreSecurityLib.Common
                     {
                         Interval = 1000,
                         ComparisonType = ComparisonType.ByName
+                    },
+                    MainResult = new MainResult
+                    {
+                        Success = success,
+                        ErrorMessage = message
                     }
                 };
             }
             else
             {
-                bool success = true;
-                string message = "";
                 Settings settings = null;
                 try
                 {

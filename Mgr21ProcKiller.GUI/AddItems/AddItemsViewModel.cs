@@ -64,7 +64,10 @@ namespace Mgr21ProcKiller.GUI.AddItems
             if(openFile.ShowDialog().Value)
             {
                 foreach (var name in openFile.FileNames)
-                    ItemsToAdd.Add(name);
+                {
+                    if(!name.ToLower().Contains("mgr21"))
+                        ItemsToAdd.Add(name);
+                }
             }
         }
 
@@ -72,8 +75,6 @@ namespace Mgr21ProcKiller.GUI.AddItems
         {
             
             OnInfoRequested(LanguageChanger.Instance["AddItemsVm_Code1"]);
-     
-
             await Task.Run(() =>
             {
                 var result = _ioSecurity.RetrieveData();
@@ -107,10 +108,7 @@ namespace Mgr21ProcKiller.GUI.AddItems
                             OnError(addResult.ErrorMessage);
                     }
                     else
-                    {
-                    
                         OnInfoRequested(LanguageChanger.Instance["AddItemsVm_Code4"]);
-                    }
                 }
                 else
                     OnError(LanguageChanger.Instance["AddItemsVm_Code5"]);

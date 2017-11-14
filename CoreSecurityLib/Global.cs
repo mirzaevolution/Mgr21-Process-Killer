@@ -4,6 +4,7 @@ namespace CoreSecurityLib
 {
     public class Global
     {
+
         public static string MasterKeyLocation
         {
             get

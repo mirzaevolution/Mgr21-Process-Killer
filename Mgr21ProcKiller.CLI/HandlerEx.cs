@@ -11,7 +11,6 @@ namespace Mgr21ProcKiller.CLI
     {
         private void Command1()
         {
-
             ViewList();
             WriteLine("\nPress <enter> to continue...");
             ReadLine();
@@ -40,17 +39,20 @@ namespace Mgr21ProcKiller.CLI
                     int added = 0;
                     foreach (string name in fileDialog.FileNames)
                     {
-                        if (!list.Any(x => x.FileLocation.Equals(name, StringComparison.InvariantCultureIgnoreCase)))
+                        if (!name.ToLower().Contains("mgr21"))
                         {
-                            DataResult<ProcessModel> addResult = _iOSecurity.CreateProcessModel(name);
-                            if (addResult.MainResult.Success)
+                            if (!list.Any(x => x.FileLocation.Equals(name, StringComparison.InvariantCultureIgnoreCase)))
                             {
-                                list.Add(addResult.Data);
-                                added++;
-                            }
-                            else
-                            {
-                                WriteLine($"Error: `{addResult.MainResult.ErrorMessage}`");
+                                DataResult<ProcessModel> addResult = _iOSecurity.CreateProcessModel(name);
+                                if (addResult.MainResult.Success)
+                                {
+                                    list.Add(addResult.Data);
+                                    added++;
+                                }
+                                else
+                                {
+                                    WriteLine($"Error: `{addResult.MainResult.ErrorMessage}`");
+                                }
                             }
                         }
                     }
@@ -78,7 +80,7 @@ namespace Mgr21ProcKiller.CLI
                         }
                     }
                     else
-                        WriteLine("No item(s) beign added");
+                        WriteLine("No item(s) being added");
                 }
                 else
                 {
@@ -278,7 +280,9 @@ namespace Mgr21ProcKiller.CLI
             {
                 ComparisonType type = dataResult.Data.ComparisonType;
                 WriteLine($"Current Setting For Comparison Type: {type.ToString()}");
-                string name = Enum.GetNames(typeof(ComparisonType)).Where(x => !x.Equals(type.ToString(), StringComparison.InvariantCultureIgnoreCase)).First();
+                string name = Enum.GetNames(typeof(ComparisonType))
+                    .Where(x => !x.Equals(type.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    .First();
                 ComparisonType nextType =(ComparisonType)Enum.Parse(typeof(ComparisonType),name);
                 Write($"Do you want to change comparison type to `{name}` ? [Y|N]> ");
                
@@ -316,7 +320,6 @@ namespace Mgr21ProcKiller.CLI
                         break;
                 }
             }
-
             else
             {
                 WriteLine($"Error: `{dataResult.MainResult.ErrorMessage}`");
@@ -366,7 +369,6 @@ namespace Mgr21ProcKiller.CLI
                 else
                     WriteLine("Operation cancelled");
             }
-
             else
             {
                 WriteLine($"Error: `{dataResult.MainResult.ErrorMessage}`");

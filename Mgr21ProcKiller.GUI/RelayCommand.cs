@@ -16,7 +16,6 @@ namespace Mgr21ProcKiller.GUI
             _action = action;
             _func = func;
         }
-
         public event EventHandler CanExecuteChanged
         {
             add
@@ -28,7 +27,6 @@ namespace Mgr21ProcKiller.GUI
                 CommandManager.RequerySuggested -= value;
             }
         }
-
         public bool CanExecute(object parameter)
         {
             if (_func != null)
@@ -68,8 +66,6 @@ namespace Mgr21ProcKiller.GUI
                 CommandManager.RequerySuggested -= value;
             }
         }
-
-
         public bool CanExecute(object parameter)
         {
             if (_func != null)

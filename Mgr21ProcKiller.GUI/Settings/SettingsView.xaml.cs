@@ -19,7 +19,6 @@ namespace Mgr21ProcKiller.GUI.Settings
         CoreModel.Settings _settings;
         public SettingsView()
         {
-            
             InitializeComponent();
             _serviceLifetimeController = new LifetimeController();
             LoadDefaultSettings();

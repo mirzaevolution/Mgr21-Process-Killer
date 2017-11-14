@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CoreModel;
 using CoreSecurityLib.Security;
@@ -112,7 +111,7 @@ namespace Mgr21ProcKiller.GUI.BlackList
             });
 
             if(!_isError)
-                BlackList.Clear();
+                BlackList.Clear(); //to avoid CrossThreadException
         }
 
         private bool CanClearList()
@@ -147,10 +146,8 @@ namespace Mgr21ProcKiller.GUI.BlackList
 
             });
             if(_isError)
-            {
                 BlackList.Insert(index, processModel);
-            }
-            
+
         }
 
         private bool CanRemove()

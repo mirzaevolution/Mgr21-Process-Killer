@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace Mgr21ProcKiller.CLI
 {
     class Program
