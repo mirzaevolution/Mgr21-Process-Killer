@@ -1,0 +1,71 @@
+﻿<controls:MetroWindow 
+        x:Class="Mgr21ProcKiller.GUI.Startup.StartupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:root="clr-namespace:Mgr21ProcKiller.GUI"
+        WindowStartupLocation="CenterScreen"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d" Height="265" Width="400" ResizeMode="NoResize"
+        ShowInTaskbar="True" ShowCloseButton="False" ShowMinButton="False"
+         ShowMaxRestoreButton="False" Icon="/Contents/mgr21-ico.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="gridSetupMasterKey" Margin="5" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{root:LanguageResolver StartupView_TextBlockMasterPassword_Text}" FontSize="17" VerticalAlignment="Center" Margin="5" Grid.ColumnSpan="2"/>
+            <PasswordBox Name="passwordBoxNewPassword" Grid.Row="1" TabIndex="0"
+                         Grid.Column="1" Margin="5,15,5,5" controls:TextBoxHelper.Watermark="{root:LanguageResolver StartupView_PwdBoxNew_Watermark}"
+                         controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock is ON"/>
+            <PasswordBox Name="passwordBoxNewPasswordConfirm" Grid.Row="2" TabIndex="1"
+                         Grid.Column="1" Margin="5,15,5,5" controls:TextBoxHelper.Watermark="{root:LanguageResolver StartupView_PwdBoxConfirm_Watermark}"
+                         controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock is ON"/>
+            <DockPanel Grid.Row="3" LastChildFill="False">
+                <Button Name="buttonSetUpMasterKey" Content="{root:LanguageResolver StartupView_ButtonSetPassword_Content}" TabIndex="2"
+                    Click="OnSetUpMasterKey" Width="100" Margin="5,10,5,5" DockPanel.Dock="Left"
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4"/>
+                <Button Name="buttonExitSetupMasterKey" Content="{root:LanguageResolver StartupView_ButtonExit_Content}" TabIndex="3"
+                    Click="OnExit" Width="100" Margin="5,10,5,5" DockPanel.Dock="Right"
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4"/>
+            </DockPanel>
+        </Grid>
+        <Grid x:Name="gridLogin" Margin="5" VerticalAlignment="Center" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Margin="5" Grid.ColumnSpan="2">
+                <Run FontWeight="Bold" FontSize="20" Text="{root:LanguageResolver StartupView_RunLogin_Text}"/>
+                <Run x:Name="loginStatus" FontSize="16" FontWeight="SemiBold">(0/5)</Run>
+            </TextBlock>
+            <PasswordBox Name="passwordBoxLogin" Grid.Row="1" TabIndex="0"
+                         Grid.Column="1" Margin="5,15,5,5" controls:TextBoxHelper.Watermark="{root:LanguageResolver StartupView_PwdBox_Watermark}"
+                         controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock is ON"/>
+            <DockPanel Grid.Row="2" LastChildFill="False">
+
+                <Button Name="buttonLogin" Content="{root:LanguageResolver StartupView_ButtonLogin_Content}" TabIndex="1"
+                        Click="OnLogin" Width="100" Margin="5,10,5,5" DockPanel.Dock="Left"
+                        controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                        BorderBrush="Lime" BorderThickness="1.4"/>
+                <Button Name="buttonExitLogin" Content="{root:LanguageResolver StartupView_ButtonExit_Content}" TabIndex="2"
+                    Click="OnExit" Width="100" Margin="5,10,5,5" DockPanel.Dock="Right"
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4"/>
+            </DockPanel>
+        </Grid>
+        <controls:MetroProgressBar Name="progressBarLoading" IsIndeterminate="False" Foreground="RoyalBlue"
+                                       Grid.Row="1" Margin="5" Height="30" Background="Transparent"/>
+    </Grid>
+</controls:MetroWindow>

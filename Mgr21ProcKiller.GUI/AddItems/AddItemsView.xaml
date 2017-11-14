@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Mgr21ProcKiller.GUI.AddItems.AddItemsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:root="clr-namespace:Mgr21ProcKiller.GUI"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{root:LanguageResolver AddItemsView_TextBlockTitle_Text}" FontSize="17" Margin="10"/>
+        <TextBlock Text="{root:LanguageResolver AddItemsView_TextBlockNote_Text}" FontStyle="Italic" Foreground="Red" Grid.Row="1" Margin="10,5,5,5"/>
+        <WrapPanel Grid.Row="2" Margin="5">
+            <Button  Height="40" Width="40" Background="#191919"
+                    Style="{DynamicResource MetroCircleButtonStyle}"
+                     Cursor="Hand" Command="{Binding BackToMenuCommand}" Margin="5" 
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4" ToolTip="{root:LanguageResolver AddItemsView_ButtonBack_Tooltip}">
+                <Rectangle Width="15" Height="15" 
+                           Fill="White">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Visual="{StaticResource appbar_navigate_previous}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button Content="{root:LanguageResolver AddItemsView_ButtonBrowse_Content}" Width="100" Height="30"
+                    Command="{Binding BrowseCommand}" Margin="5" 
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4" Cursor="Hand"/>
+            <Button Content="{root:LanguageResolver AddItemsView_ButtonAddItems}" Width="100" Height="30"
+                    Command="{Binding AddCommand}" Margin="5" 
+                    controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                    BorderBrush="Lime" BorderThickness="1.4" Cursor="Hand"/>
+        </WrapPanel>
+        <DataGrid Grid.Row="3" Margin="10" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False" 
+                  ItemsSource="{Binding ItemsToAdd}" SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{root:LanguageResolver AddItemsView_DataGrid_Header1}" Binding="{Binding}" Width="*" IsReadOnly="True"/>
+                <DataGridTemplateColumn  Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="70" Margin="3" Content="{root:LanguageResolver AddItemsView_ButtonRemove_Content}" Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

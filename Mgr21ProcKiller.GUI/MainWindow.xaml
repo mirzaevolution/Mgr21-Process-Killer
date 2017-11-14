@@ -1,0 +1,73 @@
+﻿<controls:MetroWindow
+        x:Class="Mgr21ProcKiller.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mgr21ProcKiller.GUI"
+        xmlns:langVm="clr-namespace:Mgr21ProcKiller.GUI.LanguageHandler"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:blacklist="clr-namespace:Mgr21ProcKiller.GUI.BlackList"
+        xmlns:additems="clr-namespace:Mgr21ProcKiller.GUI.AddItems"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        WindowStartupLocation="CenterScreen"
+        Icon="Contents/mgr21-ico.ico"
+        mc:Ignorable="d" 
+        Title="Mgr21 Process Killer" Height="500" Width="670">
+    <controls:MetroWindow.DataContext>
+        <local:MainWindowViewModel Error="OnError" InfoRequested="OnInfoRequested"/>
+    </controls:MetroWindow.DataContext>
+    <controls:MetroWindow.Resources>
+        <DataTemplate DataType="{x:Type blacklist:BlackListViewModel}">
+            <blacklist:BlackListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type additems:AddItemsViewModel}">
+            <additems:AddItemsView/>
+        </DataTemplate>
+    </controls:MetroWindow.Resources>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Content="{local:LanguageResolver MainWindow_CmdBar_Settings}" Name="buttonSettings" Click="ButtonSettingsShow"/>
+            <Button Content="{local:LanguageResolver MainWindow_CmdBar_About}" Name="buttonAbout" Click="ButtonAboutShow"/>
+            <Border HorizontalAlignment="Right" Margin="2,0,2,0">
+                <Border.DataContext>
+                    <langVm:LanguageViewModel/>
+                </Border.DataContext>
+                <ComboBox Width="200" ItemsSource="{Binding Languages}" 
+                          SelectedItem="{Binding SelectedLanguage}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ChangeLanguageCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding FlagPath}" Width="64" Margin="2" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Name}" Margin="2" Grid.Column="1" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Border>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image Height="65" HorizontalAlignment="Center" Margin="20" Source="Contents/corelogo.png"/>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+        <StatusBar Grid.Row="2" Height="35">
+            <StatusBarItem Name="statusbarInfo" FontSize="15.5"/>
+            
+        </StatusBar>
+    </Grid>
+</controls:MetroWindow>

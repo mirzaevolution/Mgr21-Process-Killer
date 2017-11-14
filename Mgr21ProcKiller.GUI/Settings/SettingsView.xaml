@@ -1,0 +1,84 @@
+﻿<controls:MetroWindow x:Class="Mgr21ProcKiller.GUI.Settings.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:root="clr-namespace:Mgr21ProcKiller.GUI"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        GlowBrush="RoyalBlue" WindowStartupLocation="CenterScreen"
+        ShowMaxRestoreButton="False" ShowMinButton="False"
+        ResizeMode="CanMinimize" 
+        Title="Settings" Height="471" Width="421">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="{root:LanguageResolver SettingsView_GroupBoxBehavior_Header}" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{root:LanguageResolver SettingsView_TextBlockComparison_Text}" VerticalAlignment="Center"
+                           Margin="5"/>
+                <StackPanel Grid.Column="1">
+                    <RadioButton Name="radioButtonByName" Content="By Name" VerticalAlignment="Center" Margin="5"/>
+                    <RadioButton Name="radioButtonBy2KbInitialBytes" Content="By 2KB Initial Bytes" VerticalAlignment="Center" Margin="5"/>
+                </StackPanel>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="5">
+                    <Run Text="{root:LanguageResolver SettingsView_RunInterval_Text}"/>
+                    <LineBreak/>
+                    <Run Text="{root:LanguageResolver SettingsView_RunMs_Text}"/>
+                </TextBlock>
+                <controls:NumericUpDown Name="numericUpDownInterval" Minimum="500" Value="1000" Margin="5" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"
+                                        Width="120" HorizontalAlignment="Left"/>
+                <Button Name="buttonUpdateSettings" Content="{root:LanguageResolver SettingsView_ButtonUpdate_Content}" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Grid.Row="2" Grid.Column="1" Margin="5" Click="UpdateBehaviorSettings" Width="60"
+                controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                BorderBrush="Lime" BorderThickness="1.4" Cursor="Hand"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="{root:LanguageResolver SettingsView_GroupBoxPassword_Header}" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{root:LanguageResolver SettingsView_TextBlockCurrentPwd_Text}" VerticalAlignment="Center"
+                           Margin="5"/>
+                <PasswordBox Name="passwordBoxCurrentPassword" Margin="5" Padding="4" Grid.Column="1"
+                             controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock ON"/>
+                <TextBlock Text="{root:LanguageResolver SettingsView_TextBlockNewPwd_Text}" VerticalAlignment="Center"
+                           Margin="5" Grid.Row="1"/>
+                <PasswordBox Name="passwordBoxNewPassword" Margin="5" Padding="4" Grid.Row="1" Grid.Column="1"
+                             controls:PasswordBoxHelper.CapsLockWarningToolTip="Caps Lock ON"/>
+                <Button Name="buttonChangePassword" Content="{root:LanguageResolver SettingsView_ButtonUpdate_Content}" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Grid.Row="2" Grid.Column="1" Margin="5" Click="UpdateMasterPassword" Width="60"
+                controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                BorderBrush="Lime" BorderThickness="1.4" Cursor="Hand"/>
+            </Grid>
+        </GroupBox>
+        <DockPanel Grid.Row="2">
+            <Button Content="{root:LanguageResolver SettingsView_ButtonExit_Content}" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                 Margin="15" Click="ExitWindow" Width="60" DockPanel.Dock="Right"
+                controls:ButtonHelper.CornerRadius="15" controls:ButtonHelper.PreserveTextCase="True"
+                BorderBrush="Lime" BorderThickness="1.4" Cursor="Hand"/>
+            <controls:MetroProgressBar Background="Transparent" Name="progressBarLoading" 
+                                       IsIndeterminate="False" Margin="10,10,15,10" 
+                                       Foreground="RoyalBlue"/>
+        </DockPanel>
+    </Grid>
+</controls:MetroWindow>
