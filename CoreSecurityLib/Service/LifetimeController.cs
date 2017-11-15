@@ -40,10 +40,11 @@ namespace CoreSecurityLib.Service
                
                 try
                 {
-                    if (serviceController.Status == ServiceControllerStatus.Paused)
-                        return ContinueService();
-                    else if (serviceController.Status == ServiceControllerStatus.Stopped)
+                    if(serviceController.Status == ServiceControllerStatus.Stopped)
+                    {
                         serviceController.Start();
+                        serviceController.WaitForStatus(ServiceControllerStatus.Running);
+                    }
                     
                 }
                 catch(InvalidOperationException)
@@ -76,8 +77,12 @@ namespace CoreSecurityLib.Service
 
                 try
                 {
-                    if (serviceController.Status != ServiceControllerStatus.Stopped)
+                    if (serviceController.Status == ServiceControllerStatus.Running)
+                    {
                         serviceController.Stop();
+                        serviceController.WaitForStatus(ServiceControllerStatus.Stopped);
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -104,8 +109,12 @@ namespace CoreSecurityLib.Service
 
                 try
                 {
+
                     if (serviceController.Status == ServiceControllerStatus.Running)
+                    {
                         serviceController.Pause();
+                        serviceController.WaitForStatus(ServiceControllerStatus.Paused);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -132,17 +141,18 @@ namespace CoreSecurityLib.Service
 
                 try
                 {
-                    if (serviceController.Status == ServiceControllerStatus.Stopped)
-                        serviceController.Start();
-                    else if (serviceController.Status == ServiceControllerStatus.Paused || serviceController.Status == ServiceControllerStatus.PausePending)
+                    if(serviceController.Status == ServiceControllerStatus.Paused)
+                    {
                         serviceController.Continue();
-
+                        serviceController.WaitForStatus(ServiceControllerStatus.Running);
+                    }
                 }
                 catch (Exception ex)
                 {
                     success = false;
                     error = $"An error occured while continuing the service. Error: {ex.Message}";
                 }
+                
                 return new MainResult
                 {
                     Success = success,
@@ -160,7 +170,6 @@ namespace CoreSecurityLib.Service
                 return ContinueService();
                 
             }
-            StartService();
             return pauseResult;
         }
     }
