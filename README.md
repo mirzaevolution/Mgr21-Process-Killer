@@ -36,7 +36,7 @@ for the security part, you must set master password to secure your data. Everyti
 
 
 
-### ![LIVE DEMO](https://youtu.be/GB5-JKdtR5s)
+### [LIVE DEMO](https://youtu.be/GB5-JKdtR5s)
 
 
 
