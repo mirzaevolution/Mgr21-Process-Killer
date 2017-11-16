@@ -2,7 +2,7 @@
 
 ![image1](https://raw.githubusercontent.com/mirzaevolution/Mgr21-Process-Killer/master/ScreenShots/images/0.PNG)
 
-**Mgr-21 Process Killer** is an advanced process killer software that works for MS Windows Operating System. This process killer is totally different than others in the way it kills processes. It doesn't kill processes by their names only, but with additional algorithm called "2 KB Initial Bytes" that can seek out all processes that are same but with different names. 
+**Mgr-21 Process Killer** is an advanced process killer software that works for MS Windows Operating System. This process killer is totally different than others in the way it finds processes. It doesn't find processes by their names only, but with additional algorithm called "2 KB Initial Bytes" that can seek out all processes that are same but with different names. 
 
 Why is it important? when you run 2 same programs but with different names(MyCalculator.exe, MyCalculator1.exe), they will have different process names too and suppose you would like to kill MyCalculator.exe, the counterpart won't be killed because of different process name. So, Find process by name won't be so effective in this matter. Therefore, **Mgr-21 Process Killer** uses different technique to find same processes with different names by scanning their 2 KB initial bytes and process names using parallel processing (2 cores+) or synchronous processing. 
 
@@ -33,6 +33,11 @@ for the security part, you must set master password to secure your data. Everyti
 ![image9](https://raw.githubusercontent.com/mirzaevolution/Mgr21-Process-Killer/master/ScreenShots/images/8.PNG)
 
 ![image10](https://raw.githubusercontent.com/mirzaevolution/Mgr21-Process-Killer/master/ScreenShots/images/9.PNG)
+
+
+
+### [LIVE DEMO](https://youtu.be/GB5-JKdtR5s)
+
 
 
 **NOTE:** You can use this Process Killer without opening the programs (suppose black list already defined). It'll automatically run when windows starts.
