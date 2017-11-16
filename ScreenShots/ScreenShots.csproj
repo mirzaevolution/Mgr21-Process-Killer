@@ -45,6 +45,7 @@
     <Content Include="images\7.PNG" />
     <Content Include="images\8.PNG" />
     <Content Include="images\9.PNG" />
+    <Content Include="images\dashboard.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
