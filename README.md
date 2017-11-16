@@ -1,6 +1,6 @@
 # Mgr-21 Process Killer
 
-![image1](https://raw.githubusercontent.com/mirzaevolution/Mgr21-Process-Killer/master/ScreenShots/images/0.PNG)
+![image1](https://raw.githubusercontent.com/mirzaevolution/Mgr21-Process-Killer/master/ScreenShots/images/dashboard.PNG)
 
 **Mgr-21 Process Killer** is an advanced process killer software that works for MS Windows Operating System. This process killer is totally different than others in the way it finds processes. It doesn't find processes by their names only, but with additional algorithm called "2 KB Initial Bytes" that can seek out all processes that are same but with different names. 
 
