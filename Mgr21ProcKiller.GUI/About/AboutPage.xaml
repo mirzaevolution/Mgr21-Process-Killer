@@ -17,7 +17,7 @@
         <Image Margin="4,40,10,0" Source="/Contents/mgr21-png.png"
                Height="80" Width="80" VerticalAlignment="Top"/>
         <DockPanel Grid.Column="1" Margin="5" LastChildFill="False">
-            <TextBlock Text="Mgr-21 Process Blocker v1.0.0" DockPanel.Dock="Top" Margin="10"
+            <TextBlock Text="Mgr-21 Process Killer v1.0.0" DockPanel.Dock="Top" Margin="10"
                        FontSize="18" FontWeight="SemiBold"/>
             <TextBlock Margin="10,10,10,5" DockPanel.Dock="Top" TextWrapping="Wrap">
                 An advanced process killer software for Windows OS. It is an open source software
