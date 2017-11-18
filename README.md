@@ -36,8 +36,6 @@ for the security part, you must set master password to secure your data. Everyti
 
 
 
-### [LIVE DEMO](https://youtu.be/GB5-JKdtR5s)
-
 
 
 **NOTE:** You can use this Process Killer without opening the programs (suppose black list already defined). It'll automatically run when windows starts.
