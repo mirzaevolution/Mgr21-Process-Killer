@@ -46,7 +46,7 @@ for the security part, you must set master password to secure your data. Everyti
 
 Are you ready to taste **Mgr-21 Process Killer** ??? Hit download link below.
 
-## [DOWNLOAD](https://github.com/mirzaevolution/Mgr21-Process-Killer/releases/download/1.0.0/setup.exe)
+## [DOWNLOAD](https://drive.google.com/file/d/10pv8Cbja2y6nS_VfByVlw0kxCLxbM08k/view?usp=sharing)
 
 
 Best Regards,
